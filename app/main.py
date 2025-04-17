@@ -5,19 +5,18 @@ import numpy as np
 import pickle
 import os
 
-# Verifica se o modelo existe antes de tentar carregá-lo
+
 model_path = 'model/modelo.pkl'
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"O modelo não foi encontrado em {model_path}")
 
-# Carrega o modelo
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
-# Inicializa a API
+
 app = FastAPI(title="Casa Barata API")
 
-# Middleware CORS
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -26,7 +25,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Esquema simplificado
 class InputData(BaseModel):
     bedrooms: int
     bathrooms: float
