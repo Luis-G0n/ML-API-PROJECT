@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Casa Barata - Previsão de Preço</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #dbeafe, #bfdbfe);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 450px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #1e3a8a;
+      text-align: center;
+    }
+
+    label {
+      font-weight: 500;
+      display: block;
+      margin-top: 10px;
+      color: #1e293b;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 4px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #1d4ed8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    .resultado {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Previsão de Preço - Casa Barata</h2>
+    <form id="formulario">
+      <label for="bedrooms">Quartos</label>
+      <input type="number" id="bedrooms" required />
+
+      <label for="bathrooms">Banheiros</label>
+      <input type="number" step="0.5" id="bathrooms" required />
+
+      <label for="sqft_living">Área da casa (em pés²)</label>
+      <input type="number" id="sqft_living" required />
+
+      <label for="floors">Número de andares</label>
+      <input type="number" step="0.5" id="floors" required />
+
+      <label for="yr_built">Ano de construção</label>
+      <input type="number" id="yr_built" required />
+
+      <label for="lat">Latitude</label>
+      <input type="number" step="0.0001" id="lat" required />
+
+      <label for="long">Longitude</label>
+      <input type="number" step="0.0001" id="long" required />
+
+      <button type="submit">Prever Preço</button>
+    </form>
+
+    <div class="resultado" id="resultado"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('formulario');
+    const resultado = document.getElementById('resultado');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        bedrooms: parseInt(document.getElementById('bedrooms').value),
+        bathrooms: parseFloat(document.getElementById('bathrooms').value),
+        sqft_living: parseInt(document.getElementById('sqft_living').value),
+        floors: parseFloat(document.getElementById('floors').value),
+        yr_built: parseInt(document.getElementById('yr_built').value),
+        lat: parseFloat(document.getElementById('lat').value),
+        long: parseFloat(document.getElementById('long').value)
+      };
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/predict", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) throw new Error("Erro na previsão");
+
+        const result = await response.json();
+        resultado.textContent = `Preço estimado: R$ ${result.previsao_de_preco.toLocaleString('pt-BR')}`;
+      } catch (error) {
+        resultado.textContent = "Erro ao obter a previsão. Verifique os dados ou tente novamente.";
+      }
+    });
+  </script>
+</body>
+</html>
