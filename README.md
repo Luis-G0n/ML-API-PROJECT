@@ -39,7 +39,8 @@ git clone https://github.com/seu-usuario/casa-barata-api.git
 cd casa-barata-api
 ```
 
-    Crie um ambiente virtual e ative:
+📦 ## Crie um ambiente virtual e ative:
+    
 ```bash
 python -m venv venv # Windows
 venv\Scripts\activate # Mac/Linux
