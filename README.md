@@ -1,6 +1,6 @@
 # 🏡 Casa Barata API
 
-API desenvolvida com **FastAPI** para prever o preço de casas com base em características como número de quartos, banheiros, área, localização e ano de construção. O modelo de Machine Learning foi treinado usando um dataset de imóveis e serializado com `pickle`.
+API desenvolvida com **FastAPI** para prever o preço de casas. O modelo de Machine Learning foi treinado usando um dataset de imóveis e serializado com `pickle`.
 
 ---
 
@@ -32,11 +32,11 @@ ML-API-PROJECT/
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/casa-barata-api.git
+git clone https://github.com/s.git](https://github.com/Luis-G0n/ML-API-PROJECT
 ```
 
 ```bash
-cd casa-barata-api
+cd ML-API-PROJECT
 ```
 
  ## 📦 Crie um ambiente virtual e ative:
