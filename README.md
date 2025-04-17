@@ -39,7 +39,7 @@ git clone https://github.com/seu-usuario/casa-barata-api.git
 cd casa-barata-api
 ```
 
-📦 ## Crie um ambiente virtual e ative:
+ ## 📦 Crie um ambiente virtual e ative:
     
 ```bash
 python -m venv venv # Windows
@@ -47,28 +47,29 @@ venv\Scripts\activate # Mac/Linux
 source venv/bin/activate
 ```
 
-    Instale as dependências:
+   ##  Instale as dependências:
 ```bash
 pip install -r requirements.txt
 ```
 
-▶️ Executando a API
+## ▶️ Executando a API
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Acesse a documentação interativa da API em:
+## Acesse a documentação interativa da API em:
 
     Swagger: http://localhost:8000/docs
 
     Redoc: http://localhost:8000/redoc
 
-📥 Endpoint de Previsão
+## 📥 Endpoint de Previsão
 POST /predict
 
 Envia os dados da casa para obter a previsão do preço.
-✅ Exemplo de JSON de entrada:
+## ✅ Exemplo de JSON de entrada:
+
 ```bash
 {
   "bedrooms": 3,
@@ -82,7 +83,7 @@ Envia os dados da casa para obter a previsão do preço.
 
 ```
 
-🔁 Resposta esperada:
+## 🔁 Resposta esperada:
 
 ```bash
 {
@@ -90,7 +91,7 @@ Envia os dados da casa para obter a previsão do preço.
 }
 ```
 
-📌 Observações
+## 📌 Observações
 
     O modelo atual pode retornar preços muito altos caso os dados de entrada estejam fora da distribuição esperada.
 
@@ -98,7 +99,7 @@ Envia os dados da casa para obter a previsão do preço.
 
     Se os valores parecerem irreais, verifique a normalização dos dados ou reavalie a performance do modelo com técnicas de validação.
 
-🧠 Treinamento do Modelo
+## 🧠 Treinamento do Modelo
 
 O modelo foi treinado com:
 
@@ -108,6 +109,6 @@ O modelo foi treinado com:
 
     Ferramenta de serialização: pickle
 
-📜 Licença
+## 📜 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
