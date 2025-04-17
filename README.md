@@ -17,7 +17,12 @@ API desenvolvida com **FastAPI** para prever o preço de casas com base em carac
 
 ## 📁 Estrutura do Projeto
 
-ML-API-PROJECT/ ├── model/ │ └── modelo.pkl ├── main.py ├── requirements.txt └── README.md
+ML-API-PROJECT/ 
+├── model/ 
+│ └── modelo.pkl 
+├── main.py 
+├── requirements.txt 
+└── README.md
 
 
 ---
@@ -28,23 +33,29 @@ ML-API-PROJECT/ ├── model/ │ └── modelo.pkl ├── main.py ├�
 
 ```bash
 git clone https://github.com/seu-usuario/casa-barata-api.git
+```
+
+```bash
 cd casa-barata-api
+```bash
 
     Crie um ambiente virtual e ative:
-
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# Mac/Linux
+```bash
+python -m venv venv # Windows
+venv\Scripts\activate # Mac/Linux
 source venv/bin/activate
 
+```bash
+
     Instale as dependências:
-
+```bash
 pip install -r requirements.txt
-
+```bash
 ▶️ Executando a API
 
+```bash
 uvicorn main:app --reload
+```bash
 
 Acesse a documentação interativa da API em:
 
@@ -57,7 +68,7 @@ POST /predict
 
 Envia os dados da casa para obter a previsão do preço.
 ✅ Exemplo de JSON de entrada:
-
+```bash
 {
   "bedrooms": 3,
   "bathrooms": 2.0,
@@ -68,11 +79,15 @@ Envia os dados da casa para obter a previsão do preço.
   "long": -122.257
 }
 
+```bash
+
 🔁 Resposta esperada:
 
+```bash
 {
   "previsao_de_preco": 450000.0
 }
+```bash
 
 📌 Observações
 
