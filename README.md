@@ -37,25 +37,25 @@ git clone https://github.com/seu-usuario/casa-barata-api.git
 
 ```bash
 cd casa-barata-api
-```bash
+```
 
     Crie um ambiente virtual e ative:
 ```bash
 python -m venv venv # Windows
 venv\Scripts\activate # Mac/Linux
 source venv/bin/activate
-
-```bash
+```
 
     Instale as dependências:
 ```bash
 pip install -r requirements.txt
-```bash
+```
+
 ▶️ Executando a API
 
 ```bash
 uvicorn main:app --reload
-```bash
+```
 
 Acesse a documentação interativa da API em:
 
@@ -79,7 +79,7 @@ Envia os dados da casa para obter a previsão do preço.
   "long": -122.257
 }
 
-```bash
+```
 
 🔁 Resposta esperada:
 
@@ -87,7 +87,7 @@ Envia os dados da casa para obter a previsão do preço.
 {
   "previsao_de_preco": 450000.0
 }
-```bash
+```
 
 📌 Observações
 
